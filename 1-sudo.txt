@@ -1,0 +1,2 @@
+sudo su
+echo "fer ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
