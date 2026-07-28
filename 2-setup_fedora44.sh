@@ -27,7 +27,7 @@ sudo dnf upgrade --refresh -y
 echo "--> Instalando códecs de video e integración multimedia..."
 sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 
-sudo dnf install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf install -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 
 
 # Aceleración por hardware VA-API/VDPAU en AMD e Intel
@@ -51,7 +51,7 @@ sudo dnf install -y \
 # Detección de tarjeta gráfica NVIDIA
 if lspci | grep -i nvidia > /dev/null; then
     echo "--> Placa NVIDIA detectada: Instalando controladores propietarios AKMOD..."
-    sudo dnf install -y akmod-nvidia
+    sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-cuda-libs.i686
 fi
 
 # 6. Herramientas de Rendimiento y Optimización Gaming
@@ -125,7 +125,6 @@ sudo dnf install -y \
     gimp \
     meld \
     guake \
-    ktorrent \
     powertop \
     nmap \
     zsh \
