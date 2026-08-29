@@ -3,6 +3,10 @@ set -e
 
 echo "=== Configurando Fedora 44 KDE para Gaming ==="
 
+#habilitar pegar click central
+gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
+
+
 # 1. Optimizar DNF5 para descargas más rápidas
 echo "--> Configurando DNF..."
 sudo bash -c 'cat <<EOF >> /etc/dnf/dnf.conf
@@ -13,8 +17,7 @@ EOF'
 
 # 2. Habilitar RPM Fusion (Free y Nonfree) y Flathub
 echo "--> Habilitando repositorios (RPM Fusion y Flathub)..."
-sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-                    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -214,6 +217,36 @@ echo " ¡Configuración completada con éxito!"
 echo " RECOMENDACIÓN: Reinicia el sistema para aplicar los"
 echo " controladores, parches del kernel y grupos de usuarios."
 echo "=========================================================="
+
+
+
+
+
+
+#mover dir personal a workspace
+
+rm -rf "$HOME/Documents"
+rm -rf "$HOME/Downloads"
+rm -rf "$HOME/Pictures"
+rm -rf "$HOME/Videos"
+rm -rf "$HOME/Music"
+rm -rf "$HOME/Templates"
+rm -rf "$HOME/Public"
+rm -rf "$HOME/Desktop"
+
+
+ln -s "$HOME/workspace/personal/Documents" "$HOME/Documents"
+ln -s "$HOME/workspace/personal/Downloads" "$HOME/Downloads"
+ln -s "$HOME/workspace/personal/Pictures" "$HOME/Pictures"
+ln -s "$HOME/workspace/personal/Videos" "$HOME/Videos"
+ln -s "$HOME/workspace/personal/Music" "$HOME/Music"
+ln -s "$HOME/workspace/personal/Templates" "$HOME/Templates"
+ln -s "$HOME/workspace/personal/Public" "$HOME/Public"
+ln -s "$HOME/workspace/personal/Desktop" "$HOME/Desktop"
+
+
+
+
 
 
 echo "--> Instalando Tailscale..."
