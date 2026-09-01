@@ -78,3 +78,10 @@ chsh -s $(which zsh)
 
 echo "--- ¡Listo! ---"
 echo "Reiniciá sesión o ejecutá: zsh"
+
+
+#Backup configuración ptyxis
+#dconf dump /org/gnome/Ptyxis/ > ptyxis_backup.ini
+
+#Restaurar configuración ptyxis
+dconf load /org/gnome/Ptyxis/ < ptyxis_backup.ini
