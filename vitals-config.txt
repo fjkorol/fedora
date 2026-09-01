@@ -1,0 +1,3 @@
+[/]
+fixed-widths=false
+hot-sensors=['__network-rx_max__', '__temperature_max__']

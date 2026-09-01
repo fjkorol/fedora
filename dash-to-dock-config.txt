@@ -1,0 +1,14 @@
+[/]
+always-center-icons=true
+apply-custom-theme=true
+click-action='focus-minimize-or-appspread'
+custom-theme-shrink=true
+dash-max-icon-size=40
+dock-fixed=true
+dock-position='BOTTOM'
+extend-height=true
+isolate-monitors=true
+isolate-workspaces=true
+multi-monitor=true
+show-mounts=false
+show-trash=false

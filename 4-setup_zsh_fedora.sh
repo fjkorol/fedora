@@ -48,29 +48,11 @@ for path in "${!addons[@]}"; do
     fi
 done
 
-# 4. FZF (mejor usar dnf en Fedora)
-echo "--- Instalando FZF ---"
-sudo dnf install -y fzf
 
-# 5. Configuración .zshrc
-echo "--- Configurando .zshrc ---"
-touch ~/.zshrc
 
-# Tema
-if grep -q "^ZSH_THEME=" ~/.zshrc; then
-    sed -i 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
-else
-    echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
-fi
 
-# Plugins
-PLUGINS_LINE='plugins=(git zsh-syntax-highlighting zsh-autosuggestions git-flow-completion)'
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
-if grep -q "^plugins=" ~/.zshrc; then
-    sed -i "s|^plugins=.*|$PLUGINS_LINE|" ~/.zshrc
-else
-    echo "$PLUGINS_LINE" >> ~/.zshrc
-fi
 
 # 6. Cambiar shell por defecto (válido en Fedora normal)
 echo "--- Cambiando shell a zsh ---"
