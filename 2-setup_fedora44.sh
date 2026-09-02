@@ -118,7 +118,8 @@ flatpak install -y flathub com.heroicgameslauncher.hgl    # Heroic (Epic, GOG, A
 flatpak install -y flathub net.davidotek.pupgui2          # ProtonUp-Qt (Para GE-Proton)
 flatpak install -y flathub com.usebottles.bottles        # Bottles
 flatpak install -y flathub com.mattjakeman.ExtensionManager # Extension Manager (Flatpak)
-
+flatpak install -y flathub net.nokyan.Resources #Resources
+flatpak install -y flathub com.rtosta.zapzap
 
 echo "--> Herramientas basicas..."
 
