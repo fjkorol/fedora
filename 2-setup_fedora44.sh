@@ -120,6 +120,7 @@ flatpak install -y flathub com.usebottles.bottles        # Bottles
 flatpak install -y flathub com.mattjakeman.ExtensionManager # Extension Manager (Flatpak)
 flatpak install -y flathub net.nokyan.Resources #Resources
 flatpak install -y flathub com.rtosta.zapzap
+flatpak install -y flathub app.freelens.Freelens
 
 echo "--> Herramientas basicas..."
 
